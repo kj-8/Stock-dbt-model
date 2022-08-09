@@ -1,0 +1,112 @@
+version: 2
+
+sources:
+  - name: economy_data_atlas
+    database: economy_data_atlas
+    schema: economy
+    tables:
+      - name: exratescc2018
+        description: Source Model for exchange rates
+        columns:
+          - name: 'Currency'
+            description: Symbol for the Currency
+          - name: 'Currency Description'
+            description: Info about the currency
+          - name: 'Currency Exchange'
+            description: Information about Currency Exchange
+          - name: 'Currency Name'
+            description: Name of the currency
+          - name: 'Currency PairId'
+            description: Id assigned to the currency pair
+          - name: 'Currency Unit'
+            description: Currency unit for the stock value
+          - name: 'Date'
+            description: Date for stock information
+          - name: 'Frequency'
+            description: Rate at which stock data is updated
+          - name: 'Indicator'
+            description: Represents type of indicator for this data
+          - name: 'Indicator Name'
+            description: Type of indicator for which info is logged
+          - name: 'Scale'
+            description: Measurement scale for the data
+          - name: 'Units'
+            description: Units for the stock value
+          - name: 'Value'
+            description: Value of the stock
+      - name: usindssp2020
+        description: Source Model for stock trading history
+        columns:
+          - name: 'Company'
+            description: Short name for the company
+          - name: 'Company Name'
+            description: Full name of the company
+          - name: 'Company Ticker'
+            description: Keyword used as ticker for the company
+          - name: 'Date'
+            description: Date for stock information
+          - name: 'Frequency'
+            description: Rate at which stock data is updated
+          - name: 'Indicator'
+            description: Represents type of indicator for this data
+          - name: 'Indicator Name'
+            description: Type of indicator for which info is logged
+          - name: 'Scale'
+            description: Measurement scale for the data
+          - name: 'Stock Exchange'
+            description: Id representing the stock exchange
+          - name: 'Stock Exchange Name'
+            description: Name of the stock excahnge
+          - name: 'Units'
+            description: Units for the stock value
+          - name: 'Value'
+            description: Value of the stock
+models:
+  - name: stg_fx_rates
+    description: Stock exchange rates staging model created in dbt project
+    columns:
+      - name: 'currency'
+        description: Symbol for the Currency
+      - name: 'currency_unit'
+        description: Currency unit for the stock value
+      - name: 'frequency'
+        description: Rate at which stock data is updated
+      - name: 'exchange_date'
+        description: Date for stock information
+      - name: 'exchange_value'
+        description: Value of the stock exchanged
+      - name: 'indicator'
+        description: Represents type of indicator for this data
+      - name: 'indicator_name'
+        description: Type of indicator for which info is logged
+      - name: 'data_source_name'
+        description: Source information for the data
+  - name: stg_stock_history
+    description: Staging Model for stock trading history created in dbt project
+    columns:
+      - name: 'company'
+        description: Short name for the company
+      - name: 'company_name'
+        description: Full name of the company
+      - name: 'company_symbol'
+        description: Keyword used as ticker for the company
+      - name: 'stock_exchange'
+        description: Id representing the stock exchange
+      - name: 'stock_exchange_name'
+        description: Name of the stock excahnge
+      - name: 'indicator'
+        description: Represents type of indicator for this data
+      - name: 'indicator_name'
+        description: Type of indicator for which info is logged
+      - name: 'units'
+        description: Units for the stock value
+      - name: 'scale'
+        description: Measurement scale for the data
+      - name: 'frequency'
+        description: Rate at which stock data is updated
+      - name: 'stock_date'
+        description: Date for stock information
+      - name: 'stock_value'
+        description: Value of the stock
+      - name: 'data_source_name'
+        description: Source information for the data

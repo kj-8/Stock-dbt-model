@@ -1,0 +1,240 @@
+version: 2
+ 
+models:
+  - name: int_fx_rates
+    description: "An intermediate model that filters stg_raw_fx_rates"
+    columns:
+      - name: currency
+        description: "Raw currency information"
+        tests:
+          - not_null
+      - name: currency_unit
+        description: "Raw currency data"
+        tests:
+          - not_null
+      - name: frequency
+        description: "Frequency of the stock data"
+        tests:
+          - not_null
+      - name: exchange_date
+        description: "Date information about the stock"
+        tests:
+          - not_null
+      - name: exchange_value
+        description: "Current stock value"
+        tests:
+          - not_null
+      - name: indicator
+        description: "Indicator for the stock"
+        tests:
+          - not_null
+      - name: indicator_name
+        description: "Indicator name of the stock"
+        tests:
+          - not_null
+      - name: data_source_name
+        description: "Source of the data"
+        tests:
+          - not_null
+ 
+  - name: int_stock_history
+    description: "An intermediate model that pivots the stg_raw_stock_history model by indicator"
+    columns:
+      - name: company_symbol
+        description: "Symbol for the stock "
+        tests:
+          - not_null
+          - unique
+      - name: stock_date
+        description: "Date information for the stock"
+        tests:
+          - not_null
+      - name: company_name
+        description: "Name of the company that stock belongs to"
+        tests:
+          - not_null
+      - name: stock_exchange_name
+        description: "Name of the exchange"
+        tests:
+          - not_null
+      - name: data_source_name
+        description: "Name of the dta source "
+        tests:
+          - not_null
+      - name: Close
+        description: "Closing price of the stock"
+        tests:
+          - not_null
+      - name: Open
+        description: "Opening price of the stock"
+        tests:
+          - not_null
+      - name: High
+        description: "Highest value in 24 hours frame"
+        tests:
+          - not_null
+      - name: Low
+        description: "Lowest value in 24 hours frame"
+        tests:
+          - not_null
+      - name: Volume
+        description: "Total trated volume of the stock"
+        tests:
+          - not_null
+      - name: Change %
+        description: "Total change in the price"
+        tests:
+          - not_null
+
+  - name: int_stock_history_alt
+    description: "An intermediate model that filters stg_raw_stock_history"
+    columns:
+      - name: company_symbol
+        description: "Raw currency information"
+        tests:
+          - not_null
+      - name: company_name
+        description: "Raw currency data"
+        tests:
+          - not_null
+      - name: stock_exchange_name
+        description: "Frequency of the stock data"
+        tests:
+          - not_null
+      - name: stock_date
+        description: "Date information about the stock"
+        tests:
+          - not_null
+      - name: data_source_name
+        description: "Current stock value"
+        tests:
+          - not_null
+      - name: close
+        description: "Indicator for the stock"
+        tests:
+          - not_null
+      - name: open
+        description: "Indicator name of the stock"
+        tests:
+          - not_null
+      - name: high
+        description: "Source of the data"
+        tests:
+          - not_null
+      - name: low
+        description: "Symbol for the stock "
+        tests:
+          - not_null
+      - name: volume
+        description: "Date information for the stock"
+        tests:
+          - not_null
+      - name: change
+        description: "Name of the company that stock belongs to"
+        tests:
+          - not_null
+      - name: 'Close'
+        description: "Closing price of the stock"
+        tests:
+          - not_null
+      - name: 'Open'
+        description: "Opening price of the stock"
+        tests:
+          - not_null
+      - name: 'High'
+        description: "Highest value in 24 hours frame"
+        tests:
+          - not_null
+      - name: 'Low'
+        description: "Lowest value in 24 hours frame"
+        tests:
+          - not_null
+      - name: 'Volume'
+        description: "Total trated volume of the stock"
+        tests:
+          - not_null
+      - name: 'Change %'
+        description: "Total change in the price"
+        tests:
+          - not_null
+
+  - name: int_stock_history_major_currency
+    description: "An intermediate model that filters stg_raw_stock_history_major_currency"
+    columns:
+      - name: company_symbol
+        description: "Symbol for the stock "
+        tests:
+          - not_null
+          - unique
+      - name: stock_date
+        description: "Date information for the stock"
+        tests:
+          - not_null
+      - name: company_name
+        description: "Name of the company that stock belongs to"
+        tests:
+          - not_null
+      - name: stock_exchange_name
+        description: "Name of the exchange"
+        tests:
+          - not_null
+      - name: data_source_name
+        description: "Name of the dta source "
+        tests:
+          - not_null
+      - name: Close
+        description: "Closing price of the stock"
+        tests:
+          - not_null
+      - name: Open
+        description: "Opening price of the stock"
+        tests:
+          - not_null
+      - name: High
+        description: "Highest value in 24 hours frame"
+        tests:
+          - not_null
+      - name: Low
+        description: "Lowest value in 24 hours frame"
+        tests:
+          - not_null
+      - name: Volume
+        description: "Total trated volume of the stock"
+        tests:
+          - not_null
+      - name: Change %
+        description: "Total change in the price"
+        tests:
+          - not_null
+      - name: gbp_open
+        description: "GBP Opening price of the stock"
+        tests:
+          - not_null
+      - name: gbp_high
+        description: "GBP Highest value in 24 hours frame"
+        tests:
+          - not_null
+      - name: gbp_low
+        description: "GBP Lowest value in 24 hours frame"
+        tests:
+          - not_null
+      - name: gbp_close
+        description: "GBP Total trated volume of the stock"
+        tests:
+          - not_null
+      - name: eur_open
+        description: "EUR Opening price of the stock"
+        tests:
+          - not_null
+      - name: eur_high
+        description: "EUR Highest value in 24 hours frame"
+        tests:
+          - not_null
+      - name: eur_low
+        description: "EUR Lowest value in 24 hours frame"
+        tests:
+          - not_null
+      - name: eur_close
+        description: "EUR Total trated volume of the stock"
+        tests:
+          - not_null
