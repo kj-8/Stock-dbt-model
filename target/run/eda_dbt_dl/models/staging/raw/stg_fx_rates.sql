@@ -1,6 +1,6 @@
 
 
-      create or replace transient table ECONOMY_DATA_ENRICHED.dbt_schema_staging.stg_fx_rates  as
+      create or replace transient table PC_DBT_DB.dbt_DNewUITest_staging.stg_fx_rates  as
       (with source as (
  
     select * from economy_data_atlas.economy.exratescc2018

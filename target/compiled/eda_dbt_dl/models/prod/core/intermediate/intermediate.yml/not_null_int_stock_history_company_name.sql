@@ -3,7 +3,7 @@
     
 
 select *
-from ECONOMY_DATA_ENRICHED.dbt_schema_prod.int_stock_history
+from PC_DBT_DB.dbt_DNewUITest_prod.int_stock_history
 where company_name is null
 
 

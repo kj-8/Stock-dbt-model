@@ -1,13 +1,13 @@
 
 
-      create or replace transient table ECONOMY_DATA_ENRICHED.dbt_schema_prod.int_stock_history_major_currency  as
+      create or replace transient table PC_DBT_DB.dbt_DNewUITest_prod.int_stock_history_major_currency  as
       (with
 stock_history as (
-    select * from ECONOMY_DATA_ENRICHED.dbt_schema_prod.int_stock_history
+    select * from PC_DBT_DB.dbt_DNewUITest_prod.int_stock_history
 ),
  
 fx_rates as (
-    select * from ECONOMY_DATA_ENRICHED.dbt_schema_prod.int_fx_rates
+    select * from PC_DBT_DB.dbt_DNewUITest_prod.int_fx_rates
 ),
  
 fx_rates_gdp as (

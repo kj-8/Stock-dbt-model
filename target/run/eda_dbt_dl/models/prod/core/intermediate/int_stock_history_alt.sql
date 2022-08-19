@@ -1,9 +1,9 @@
 
 
-      create or replace transient table ECONOMY_DATA_ENRICHED.dbt_schema_prod.int_stock_history_alt  as
+      create or replace transient table PC_DBT_DB.dbt_DNewUITest_prod.int_stock_history_alt  as
       (with stock_history as (
  
-    select * from ECONOMY_DATA_ENRICHED.dbt_schema_staging.stg_stock_history
+    select * from PC_DBT_DB.dbt_DNewUITest_staging.stg_stock_history
         where indicator_name IN ('Close', 'Open','High','Low', 'Volume', 'Change %') 
  
 ),

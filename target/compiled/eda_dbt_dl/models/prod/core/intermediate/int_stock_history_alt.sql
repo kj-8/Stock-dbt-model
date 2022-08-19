@@ -1,6 +1,6 @@
 with stock_history as (
  
-    select * from ECONOMY_DATA_ENRICHED.dbt_schema_staging.stg_stock_history
+    select * from PC_DBT_DB.dbt_DNewUITest_staging.stg_stock_history
         where indicator_name IN ('Close', 'Open','High','Low', 'Volume', 'Change %') 
  
 ),
